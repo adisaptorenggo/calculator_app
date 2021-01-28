@@ -9,9 +9,8 @@ class HomeScreenProvider extends ChangeNotifier{
 
   void checkPrime(int number){
     print('checking');
-    for (var i = 2; i <= number / 2; ++i) {
-
-      if (number % i == 0) {
+    for(int i = 2; i <= number / 2; i++) {
+      if(number % i == 0) {
         _isPrime = false;
         break;
       }
@@ -27,13 +26,14 @@ class HomeScreenProvider extends ChangeNotifier{
 
   void isPrimeFunc(int number){
     _isPrimeText = number.toString() + ' is Prime Number';
-
+    _isPrime = true;
     addNumber(number);
   }
 
 
   void isNotPrimeFunc(int number){
     _isPrimeText = number.toString() + ' is NOT Prime Number';
+    _isPrime = true;
   }
 
   void addNumber(int number) {
