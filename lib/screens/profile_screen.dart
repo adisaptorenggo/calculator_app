@@ -37,7 +37,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
           GestureDetector(
             onTap: (){
-
+              _launchEmail();
             },
             child: Container(
               child: Text(
@@ -85,5 +85,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ],
       ),
     );
+  }
+
+  void _launchEmail() async {
+    const url = 'mailto:adiwinotosaptorenggo@gmail.com?subject=Acquaintanceship';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      Scaffold.of(context).showSnackBar(SnackBar(
+        content: Text('Cannot send email'),
+      ));
+    }
   }
 }
